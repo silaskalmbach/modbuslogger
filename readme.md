@@ -155,3 +155,7 @@ For testing, you can set a toggle to print the output and a toggle to only displ
    - Wait for next interval
 
 The script runs in a continuous loop with configurable intervals (default: 10 seconds) and can be controlled through environment variables in the docker-compose file.
+
+Theoretically, Modbus sensors with different settings can be recorded with this configuration, as a separate instance is created for each sensor. This means that in addition to different baud rates, combinations of RS485 and Ethernet are also possible. So far, however, there has been no need for this, which is why these options are not stored in the configuration.
+
+Übersetzt mit DeepL https://www.deepl.com/app/?utm_source=android&utm_medium=app&utm_campaign=share-translation
