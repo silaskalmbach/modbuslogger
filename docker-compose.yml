@@ -1,0 +1,55 @@
+version: '2.1'
+
+services:
+  modbuslogger:
+    build: 
+      context: ./modbuslogger
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - modbuslogger:/home/modbuslogger
+    environment:
+      TZ: Europe/Berlin
+      UDEV: 1
+      INTERVAL: 10
+    privileged: true
+
+  postgres:
+    # image: postgres:15
+    build: 
+      context: ./postgres
+      dockerfile: Dockerfile
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: changeme0
+      POSTGRES_DB: db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  grafana:
+    # image: grafana/grafana-enterprise:latest
+    build: 
+      context: ./grafana
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_EMAIL: admin@admin.de
+      GF_SECURITY_ADMIN_PASSWORD: changeme1
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_DISABLE_LOGIN_FORM: "false"
+      TZ: Europe/Berlin
+      GF_INSTALL_PLUGINS: grafana-clock-panel,marcusolsson-csv-datasource,gapit-htmlgraphics-panel,fetzerch-sunandmoon-datasource,nline-plotlyjs-panel,kensobi-spc-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "80:3000"
+
+volumes:
+  grafana_data:
+  postgres_data:
+  modbuslogger:

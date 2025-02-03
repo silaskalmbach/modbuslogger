@@ -1,0 +1,13 @@
+ID,db-name,data_type,type,unit,signed,registers,value
+5,t5_c,DECIMAL,CWT-THXXS,°C,False,1,0x0001 / 10.0
+5,h5_rh,DECIMAL,CWT-THXXS,%RH,False,1,0x0000 / 10.0
+6,t6_c,DECIMAL,CWT-THXXS,°C,False,1,0x0001 / 10.0
+6,h6_rh,DECIMAL,CWT-THXXS,%RH,False,1,0x0000 / 10.0
+7,t7_c,DECIMAL,CWT-THXXS,°C,False,1,0x0001 / 10.0
+7,h7_rh,DECIMAL,CWT-THXXS,%RH,False,1,0x0000 / 10.0
+8,t8_c,DECIMAL,CWT-THXXS,°C,False,1,0x0001 / 10.0
+8,h8_rh,DECIMAL,CWT-THXXS,%RH,False,1,0x0000 / 10.0
+2,l2_lx,INTEGER,LightSensor,lux,False,2,0x0000
+3,t31_c,DECIMAL,ME31-XDXX0400,°C,False,1,0x0190 / 10.0
+4,t41_c,DECIMAL,ME31-XEXX0600,°C,False,1,0x0190 / 10.0
+4,t43_c,DECIMAL,ME31-XEXX0600,°C,False,1,0x0192 / 10.0

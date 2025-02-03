@@ -1,0 +1,21 @@
+apiVersion: 1
+
+datasources:
+  - name: DB
+    type: postgres
+    url: postgres:5432
+    database: db
+    user: readonly_user
+    uid: 'P9A151E8806FB0E43'
+    secureJsonData:
+      password: 'changeme123456789'
+    jsonData:
+      sslmode: 'disable'
+      maxOpenConns: 100
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      connMaxLifetime: 14400
+      postgresVersion: 1500
+      timescaledb: false
+    editable: true
+    isDefault: true
