@@ -38,7 +38,7 @@ Each sensor requires:
 
 Value types can be one ore multiple adressess of one format (e.g., 16bit, 32bit, 64bit) and make calculations with the values. The registers get read from the Modbus device and afterwards the value is calculated. This is done with the eval function in the python script. So be careful with the syntax.
 
-To get a 32bit value from tow 16bit registers, number of registers should be 2 and for 64bit value from four 16bit registers, number of registers should be 4.
+To get a 32bit value from two 16bit registers, number of registers should be 2 and for 64bit value from four 16bit registers, number of registers should be 4.
 
 ### 2.2 Environment Settings
 Key settings in docker-compose.yml:
@@ -124,6 +124,8 @@ The `modbuslogger.py` script is built around a `DataLogger` class that handles a
    - Manages Modbus instrument connections
    - Processes register readings and value calculations
    - Handles database operations
+
+For testing, you can set a toggle to print the output and a toggle to only display the SQL query without writing it to the database. These options are in the init section of the class. By default, both options are set to false and only some init statements and errors get printed.
 
 2. **Key Functions**
    - `_load_metadata()`: Reads sensor configuration from CSV
